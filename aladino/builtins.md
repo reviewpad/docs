@@ -1381,6 +1381,45 @@ workflows:
       - $close()
 ```
 
+
+## &nbsp; comment
+______________
+
+**Description**:
+
+Comments a pull request. 
+
+Note that this comment will always be added whenever this action is executed. 
+
+**Parameters**:
+
+| variable  | type   | description         |
+| --------- | ------ | ------------------- |
+| `comment` | string | body of the comment |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$comment("This pull request has git conflicts. Please resolve them.")
+```
+
+A `reviewpad.yml` example:
+
+```yml
+workflows:
+  - name: conflict
+    description: Ask to resolve conflict
+    if:
+      - rule: hasConflicts
+    then:
+      - $comment("This pull request has git conflicts. Please resolve them.")
+```
+
+
 ## &nbsp; commentOnce
 ______________
 
@@ -1417,6 +1456,7 @@ workflows:
     then:
       - $commentOnce("This is your first contribution! Thank you!")
 ```
+
 
 ## &nbsp; error :zap:
 
