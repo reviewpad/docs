@@ -1381,6 +1381,43 @@ workflows:
       - $close()
 ```
 
+## &nbsp; commentOnce
+______________
+
+**Description**:
+
+Comments a pull request once.
+
+If the comment is already present, then the action does nothing.
+
+**Parameters**:
+
+| variable           | type   | description                            |
+| ------------------ | ------ | -------------------------------------- |
+| `comment`          | string | body of the comment                    |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$commentOnce("This is your first contribution! Thank you!")
+```
+
+A `revy.yml` example:
+
+```yml
+workflows:
+  - name: comment-pull-request
+    description: Comment pull request
+    if:
+      - rule: firstContribution
+    then:
+      - $commentOnce("This is your first contribution! Thank you!")
+```
+
 ## &nbsp; error :zap:
 
 | :zap: Professional Edition (*) |
