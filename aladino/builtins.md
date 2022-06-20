@@ -1421,7 +1421,7 @@ workflows:
       - $error("This pull request was considered too large.")
 ```
 
-## &nbsp info :zap:
+## &nbsp; info :zap:
 
 | :zap: Professional Edition (*) |
 | ------------------------------ |
