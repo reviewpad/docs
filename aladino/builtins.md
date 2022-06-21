@@ -44,10 +44,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    assignedToTechLead:
-        kind: patch
-        description: Verifies if pull request was assigned only to a specific tech lead
-        spec: $assignees() == ["john"]
+  - name: assignedToTechLead
+    kind: patch
+    description: Verifies if pull request was assigned only to a specific tech lead
+    spec: $assignees() == ["john"]
 ```
 
 
@@ -78,10 +78,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    isAuthoredByTechLead:
-        kind: patch
-        description: Verifies if authored by tech lead
-        spec: $author() == "john"
+  - name: isAuthoredByTechLead
+    kind: patch
+    description: Verifies if authored by tech lead
+    spec: $author() == "john"
 ```
 
 
@@ -112,10 +112,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    shouldNotifyTechLead:
-        kind: patch
-        description: Verifies if pull request is going to be pulled into "features" branch
-        spec: $base() == "features"
+  - name: shouldNotifyTechLead
+    kind: patch
+    description: Verifies if pull request is going to be pulled into "features" branch
+    spec: $base() == "features"
 ```
 
 ## &nbsp; changed :zap:
@@ -157,45 +157,10 @@ A `revy.yml` example:
 
 ```yml
 rules:
-    does-not-modify-tests:
-        kind: patch
-        description: Does not modify test files
-        spec: '!$changed("src/@1.java", "test/@1.java")'
-```
-
-## &nbsp; comment
-______________
-
-**Description**:
-
-Comments a pull request. Note that this comment will always be added whenever this action is executed. 
-
-**Parameters**:
-
-| variable  | type   | description         |
-| --------- | ------ | ------------------- |
-| `comment` | string | body of the comment |
-
-**Return value**:
-
-*none*
-
-**Examples**:
-
-```yml
-$comment("This is your first contribution! Thank you!")
-```
-
-A `reviewpad.yml` example:
-
-```yml
-workflows:
-  - name: comment-pull-request
-    description: Comment pull request
-    if:
-      - rule: firstContribution
-    then:
-      - $comment("This is your first contribution! Thank you!")
+  - name: does-not-modify-tests
+    kind: patch
+    description: Does not modify test files
+    spec: '!$changed("src/@1.java", "test/@1.java")'
 ```
 
 ## &nbsp; commitCount
@@ -225,10 +190,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    hasTooManyCommits:
-        kind: patch
-        description: Verifies if it has than 3 commits
-        spec: $commitCount() > 3
+  - name: hasTooManyCommits
+    kind: patch
+    description: Verifies if it has than 3 commits
+    spec: $commitCount() > 3
 ```
 
 ## &nbsp; commits
@@ -258,10 +223,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    skipCIOnCommitMention:
-        kind: patch
-        description: Verifies if any of the commit messages of the pull request contains "skip-ci"
-        spec: $elemContains("skip-ci", $commits())
+  - name: skipCIOnCommitMention
+    kind: patch
+    description: Verifies if any of the commit messages of the pull request contains "skip-ci"
+    spec: $elemContains("skip-ci", $commits())
 ```
 
 
@@ -292,10 +257,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    wasCreatedOnApril:
-        kind: patch
-        description: Verifies if the pull request was created on the April 14th of 2011 at 16:00:49
-        spec: $createdAt() == "2011-04-14T16:00:49Z
+  - name: wasCreatedOnApril
+    kind: patch
+    description: Verifies if the pull request was created on the April 14th of 2011 at 16:00:49
+    spec: $createdAt() == "2011-04-14T16:00:49Z
 ```
 
 
@@ -326,10 +291,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    hasDescription:
-        kind: patch
-        description: Verifies if the pull request description is "Testing description"
-        spec: $description() == "Testing description"
+  - name: hasDescription
+    kind: patch
+    description: Verifies if the pull request description is "Testing description"
+    spec: $description() == "Testing description"
 ```
 
 ## &nbsp; fileCount
@@ -359,10 +324,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    changesTooManyFiles:
-        kind: patch
-        description: Verifies if it has than 3 files
-        spec: $fileCount() > 3
+  - name: changesTooManyFiles
+    kind: patch
+    description: Verifies if it has than 3 files
+    spec: $fileCount() > 3
 ```
 
 
@@ -400,10 +365,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    changesCritical:
-        kind: patch
-        description: Verifies if changes critical code
-        spec: $hasAnnotation("critical")
+  - name: changesCritical
+    kind: patch
+    description: Verifies if changes critical code
+    spec: $hasAnnotation("critical")
 ```
 
 ## &nbsp; hasCodePattern
@@ -437,10 +402,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    usesPlaceBet:
-        kind: patch
-        description: Verifies if uses placeBet
-        spec: $hasCodePattern("placeBet\(.*\)")
+  - name: usesPlaceBet
+    kind: patch
+    description: Verifies if uses placeBet
+    spec: $hasCodePattern("placeBet\(.*\)")
 ```
 
 
@@ -475,10 +440,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    changesAreOnlyTests:
-        kind: patch
-        description: Verifies if changes are only on test files
-        spec: $hasFileExtensions([".test.ts"])
+  - name: changesAreOnlyTests
+    kind: patch
+    description: Verifies if changes are only on test files
+    spec: $hasFileExtensions([".test.ts"])
 ```
 
 
@@ -513,10 +478,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    changesPlaceBet:
-        kind: patch
-        description: Verifies if changes place bet file
-        spec: $hasFileName("placeBet.js")
+  - name: changesPlaceBet
+    kind: patch
+    description: Verifies if changes place bet file
+    spec: $hasFileName("placeBet.js")
 ```
 
 
@@ -551,10 +516,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    changesTransthen:
-        kind: patch
-        description: Verifies if changes transactions
-        spec: $hasFilePattern("src/transactions/**")
+  - name: changesTransactions
+    kind: patch
+    description: Verifies if changes transactions
+    spec: $hasFilePattern("src/transactions/**")
 ```
 
 
@@ -587,10 +552,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    hasLinearHistory:
-        kind: patch
-        description: Verifies if the pull request has a linear history
-        spec: $hasLinearHistory()
+  - name: hasLinearHistory
+    kind: patch
+    description: Verifies if the pull request has a linear history
+    spec: $hasLinearHistory()
 ```
 
 
@@ -621,10 +586,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    hasLinkedIssues:
-        kind: patch
-        description: Verifies if the pull request has linked issues
-        spec: $hasLinkedIssues()
+  - name: hasLinkedIssues
+    kind: patch
+    description: Verifies if the pull request has linked issues
+    spec: $hasLinkedIssues()
 ```
 
 
@@ -655,10 +620,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    changesImplementedInDevelopmentBranch:
-        kind: patch
-        description: Verifies if pull request changes are implemented in the "development" branch
-        spec: $head() == "development"
+  - name: changesImplementedInDevelopmentBranch
+    kind: patch
+    description: Verifies if pull request changes are implemented in the "development" branch
+    spec: $head() == "development"
 ```
 
 ## &nbsp; isDraft
@@ -690,10 +655,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    isDraft:
-        kind: patch
-        description: Verifies if is Draft
-        spec: $isDraft()
+  - name: isDraft
+    kind: patch
+    description: Verifies if is Draft
+    spec: $isDraft()
 ```
 
 
@@ -724,10 +689,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    onlyHasTestLabelAssigned:
-        kind: patch
-        description: Verifies if the pull request only has "test" label assigned
-        spec: $labels() == ["test"]
+  - name: onlyHasTestLabelAssigned
+    kind: patch
+    description: Verifies if the pull request only has "test" label assigned
+    spec: $labels() == ["test"]
 ```
 
 
@@ -758,10 +723,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    isPartOfBugFixesMilestone:
-        kind: patch
-        description: Verifies if the pull request is associated with the bug fixes milestone
-        spec: $milestone() == "Bug fixes"
+  - name: isPartOfBugFixesMilestone
+    kind: patch
+    description: Verifies if the pull request is associated with the bug fixes milestone
+    spec: $milestone() == "Bug fixes"
 ```
 
 
@@ -792,10 +757,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    hasRequestedReviewers:
-        kind: patch
-        description: Verifies if the pull request has reviewers
-        spec: $reviewers() != []
+  - name: hasRequestedReviewers
+    kind: patch
+    description: Verifies if the pull request has reviewers
+    spec: $reviewers() != []
 ```
 
 
@@ -835,17 +800,11 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    isBigChange:
-        kind: patch
-        description: Verifies if change is big
-        spec: $size() > 100
+  - name: isBigChange
+    kind: patch
+    description: Verifies if change is big
+    spec: $size() > 100
 ```
-
-## Organization
-______________
-
-Set of functions to get organization details.
-
 
 ## &nbsp; title
 ______________
@@ -874,11 +833,16 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    hasTitle:
-        kind: patch
-        description: Verifies if the pull request title is "Test custom builtins"
-        spec: $title() == "Test custom builtins"
+  - name: hasTitle
+    kind: patch
+    description: Verifies if the pull request title is "Test custom builtins"
+    spec: $title() == "Test custom builtins"
 ```
+
+## Organization
+______________
+
+Set of functions to get organization details.
 
 
 ## &nbsp; organization
@@ -910,10 +874,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    isAuthorFromOrganization:
-        kind: patch
-        description: Verifies if author belongs to organization
-        spec: $isElementOf($author(), $organization())
+  - name: isAuthorFromOrganization
+    kind: patch
+    description: Verifies if author belongs to organization
+    spec: $isElementOf($author(), $organization())
 ```
 
 
@@ -957,7 +921,7 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-  isAuthorByDevops:
+  - name: isAuthorByDevops
     description: Verifies if author belongs to devops team
     kind: patch
     spec: $isElementOf($author(), $team("devops"))
@@ -997,10 +961,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    isJunior:
-        kind: patch
-        description: Verifies if author is junior
-        spec: $totalCreatedPullRequests($author()) < 3
+  - name: isJunior
+    kind: patch
+    description: Verifies if author is junior
+    spec: $totalCreatedPullRequests($author()) < 3
 ```
 
 ## Utilities
@@ -1039,15 +1003,16 @@ A `reviewpad.yml` example:
 
 ```yml
 groups:
-    frontendAndBackendDevs:
-        description: Frontend and backend developers
-        kind: developers
-        spec: $append($team("frontend"), $team("backend"))
+  - name: frontendAndBackendDevs
+    description: Frontend and backend developers
+    kind: developers
+    spec: $append($team("frontend"), $team("backend"))
+
 rules:
-    authoredByWebDeveloper:
-        kind: patch
-        description: Authored by web developers
-        spec: $isElementOf($author(), $group("frontendAndBackendDevs"))
+  - name: authoredByWebDeveloper
+    kind: patch
+    description: Authored by web developers
+    spec: $isElementOf($author(), $group("frontendAndBackendDevs"))
 ```
 
 
@@ -1082,10 +1047,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-    hasCustomKeywordInTitle:
-        kind: patch
-        description: Verifies if the pull request title has "custom" keyword
-        spec: $contains($title(), "custom")
+  - name: hasCustomKeywordInTitle
+    kind: patch
+    description: Verifies if the pull request title has "custom" keyword
+    spec: $contains($title(), "custom")
 ```
 
 
@@ -1120,7 +1085,7 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-  authoredByJunior:
+  - name: authoredByJunior
     description: Verifies if author is junior
     kind: patch
     spec: $isElementOf($author(), $group("junior"))
@@ -1165,13 +1130,13 @@ A `reviewpad.yml` example:
 
 ```yml
 groups:
-  techLeads:
+  - name: techLeads
     description: Group with all tech leads
     kind: developers
     spec: '["john", "maria", "arthur"]'
 
 rules:
-  isAuthorByTechLead:
+  - name: isAuthorByTechLead
     description: Verifies if author is a tech lead
     kind: patch
     spec: $isElementOf($author(), $group("techLeads"))
@@ -1206,12 +1171,12 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-  isSmall:
+  - name: isSmall
     description: Small pull request
     kind: patch
     spec: '$size() > 10'
 
-  isNotSmall:
+  - name: isNotSmall
     description: Not a small pull request
     kind: patch
     spec: '!$rule(isSmall)'
@@ -1336,6 +1301,41 @@ workflows:
       - rule: authoredByJunior
     then:
       - $assignReviewer($group("seniors"), 2)
+```
+
+## &nbsp; comment
+______________
+
+**Description**:
+
+Comments a pull request. Note that this comment will always be added whenever this action is executed. 
+
+**Parameters**:
+
+| variable  | type   | description         |
+| --------- | ------ | ------------------- |
+| `comment` | string | body of the comment |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$comment("This is your first contribution! Thank you!")
+```
+
+A `reviewpad.yml` example:
+
+```yml
+workflows:
+  - name: comment-pull-request
+    description: Comment pull request
+    if:
+      - rule: firstContribution
+    then:
+      - $comment("This is your first contribution! Thank you!")
 ```
 
 ## &nbsp; close
