@@ -1352,9 +1352,9 @@ ______________
 
 **Description**:
 
-Comments a pull request. 
+Comments a pull request.
 
-Note that this comment will always be added whenever this action is executed. 
+Note that this comment will always be added whenever this action is executed.
 
 **Parameters**:
 
