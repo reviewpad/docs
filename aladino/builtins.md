@@ -1313,41 +1313,6 @@ workflows:
       - $assignReviewer($group("seniors"), 2)
 ```
 
-## &nbsp; comment
-______________
-
-**Description**:
-
-Comments a pull request. Note that this comment will always be added whenever this action is executed. 
-
-**Parameters**:
-
-| variable  | type   | description         |
-| --------- | ------ | ------------------- |
-| `comment` | string | body of the comment |
-
-**Return value**:
-
-*none*
-
-**Examples**:
-
-```yml
-$comment("This is your first contribution! Thank you!")
-```
-
-A `reviewpad.yml` example:
-
-```yml
-workflows:
-  - name: comment-pull-request
-    description: Comment pull request
-    if:
-      - rule: firstContribution
-    then:
-      - $comment("This is your first contribution! Thank you!")
-```
-
 ## &nbsp; close
 ______________
 
