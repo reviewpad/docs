@@ -1113,7 +1113,7 @@ Determines whether a text starts with a certain sentence, returning `true` or `f
 | variable         | type   | description                |
 | ---------------- | ------ | -------------------------- |
 | `text`           | string | The text to search in      |
-| `prefix` | string | The prefix |
+| `prefix`         | string | The prefix                 |
 
 **Return value**:
 
@@ -1135,7 +1135,7 @@ rules:
   - name: isDevBranch
     kind: patch
     description: Verifies if the head branch of the pull requests starts with dev
-    spec: $startsWith($head(), "dev/ ")
+    spec: $startsWith($head(), "dev/")
 ```
 
 ## Engine
