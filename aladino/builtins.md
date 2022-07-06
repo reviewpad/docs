@@ -1101,6 +1101,43 @@ rules:
     spec: $isElementOf($author(), $group("junior"))
 ```
 
+## &nbsp; startsWith
+______________
+
+**Description**:
+
+Determines whether a text starts with a certain sentence, returning `true` or `false` as appropriate.
+
+**Parameters**:
+
+| variable         | type   | description                |
+| ---------------- | ------ | -------------------------- |
+| `text`           | string | The text to search in      |
+| `prefix` | string | The prefix |
+
+**Return value**:
+
+`boolean`
+
+Returns `true` if `prefix` is a prefix of `text`, `false` otherwise.
+
+**Examples**:
+
+```yml
+$startsWith("Testing string contains", "Test")     #true
+$startsWith("Testing string contains", "string contains")      #false
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: isDevBranch
+    kind: patch
+    description: Verifies if the head branch of the pull requests starts with dev
+    spec: $startsWith($head(), "dev/ ")
+```
+
 ## Engine
 ______________
 
