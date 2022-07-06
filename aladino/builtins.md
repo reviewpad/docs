@@ -653,7 +653,7 @@ To know more about [GitHub Draft pull request](https://github.blog/2019-02-14-in
 
 `boolean`
 
-A boolean al.Value which is `true` if the pull request is `Draft`, `false` otherwise.
+A boolean which is `true` if the pull request is `Draft`, `false` otherwise.
 
 **Examples**:
 
@@ -1044,7 +1044,7 @@ Determines whether a text includes a certain sentence, returning `true` or `fals
 
 `boolean`
 
-Returns `true` if the al.Value searchSentence is found within the text, `false` otherwise.
+Returns `true` if searchSentence is found within the text, `false` otherwise.
 
 **Examples**:
 
@@ -1069,20 +1069,20 @@ ______________
 
 **Description**:
 
-Determines whether a list includes a certain al.Value among its entries, returning `true` or `false` as appropriate.
+Determines whether a list includes a certain value among its entries, returning `true` or `false` as appropriate.
 
 **Parameters**:
 
 | variable        | type      | description                |
 | --------------- | --------- | -------------------------- |
-| `searchElement` | literal   | The al.Value to search for |
+| `searchElement` | literal   | The value to search for    |
 | `list`          | []literal | The list to search in      |
 
 **Return value**:
 
 `boolean`
 
-Returns `true` if the al.Value searchElement is found within the list, `false` otherwise.
+Returns `true` if searchElement is found within the list, `false` otherwise.
 
 **Examples**:
 
