@@ -168,6 +168,75 @@ rules:
     spec: '!$changed("src/@1.java", "test/@1.java")'
 ```
 
+
+## &nbsp; commentCount
+______________
+
+**Description**:
+
+Returns the total number of comments made into the pull request.
+
+**Parameters**:
+
+*none*
+
+**Return value**:
+
+`int`
+
+The total number of comments in the pull request.
+
+**Examples**:
+
+```yml
+$commentCount()
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: hasNoComments
+    kind: patch
+    description: Verifies if it has no comments
+    spec: $commentCount() == 0
+```
+
+
+## &nbsp; comments
+______________
+
+**Description**:
+
+Returns the list of comment body of the pull request.
+
+**Parameters**:
+
+*none*
+
+**Return value**:
+
+`[]string`
+
+The list of comment body of the pull request.
+
+**Examples**:
+
+```yml
+$comments()
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: hasShipItComment
+    kind: patch
+    description: Verifies if any of the comment body of the pull request contains "ship it"
+    spec: $elemContains("ship it", $comments())
+```
+
+
 ## &nbsp; commitCount
 ______________
 
