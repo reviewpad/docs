@@ -1239,7 +1239,9 @@ ______________
 
 Adds a label to the pull request.
 
-This built-in assumes that the label has been created. Otherwise, it returns an error.
+It will check if there is a label with this id in the `labels` section. 
+If such label exists, it will use name of the label; if that property is not present, then it uses the key as the name.
+If such label does not exist, it will use the input string and potentially create a label with that name.
 
 **Parameters**:
 
@@ -1249,7 +1251,7 @@ This built-in assumes that the label has been created. Otherwise, it returns an 
 
 **Return value**:
 
-Error if the label does not exist in the repository.
+None.
 
 **Examples**:
 
@@ -1631,7 +1633,11 @@ Removes a label applied to a pull request.
 
 If the label is not applied to the pull request then nothing happens.
 
-This built-in assumes that the label has been created. Otherwise, it returns an error.
+It will check if there is a label with this id in the `labels` section. 
+
+If such label exists, it will use name of the label; if that property is not present, then it uses the key as the name.
+
+If such label does not exist, returns an error.
 
 **Parameters**:
 
