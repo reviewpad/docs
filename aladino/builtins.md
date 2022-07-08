@@ -1676,7 +1676,7 @@ ______________
 
 **Description**:
 
-Fails the action with a given fail message.
+Fails the action with a given fail message which will appear in the logs of the GitHub action.
 
 **Parameters**:
 
