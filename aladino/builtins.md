@@ -1670,6 +1670,43 @@ workflows:
       - $error("This pull request was considered too large.")
 ```
 
+
+## &nbsp; fail
+______________
+
+**Description**:
+
+Fails the action with a given fail message.
+
+**Parameters**:
+
+| variable           | type   | description                            |
+| ------------------ | ------ | -------------------------------------- |
+| `failMessage`      | string | fail message                           |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$fail("please review the missing specs")
+```
+
+A `revy.yml` example:
+
+```yml
+workflows:
+  - name: fail-on-missing-specs
+    description: Fails the action on missing specs
+    if:
+      - rule: missingSpecs
+    then:
+      - $fail("please review the missing specs")
+```
+
+
 ## &nbsp; info :zap:
 
 | :zap: Professional Edition (*) |
