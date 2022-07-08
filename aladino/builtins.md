@@ -1366,6 +1366,45 @@ workflows:
 ```
 
 
+## &nbsp; assignAssignees
+______________
+
+**Description**:
+
+Assigns up to 10 assignees to a pull request. 
+
+Users already assigned to a pull request are not replaced.
+
+Only users with push access can assign users to a pull request. Assignees are silently ignored otherwise.
+
+**Parameters**:
+
+| variable    | type     | description                                         |
+| ----------- | -------- | --------------------------------------------------- |
+| `assignees` | []string | list of GitHub logins to assign the pull request to |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$assignAssignees(["john", "marie", "peter"])
+```
+
+A `reviewpad.yml` example:
+
+```yml
+workflows:
+  - name: assign-to-author
+    description: Assign pull request to author
+    always-run: true
+    then:
+      - $assignAssignees([$author()])
+```
+
+
 ## &nbsp; assignRandomReviewer
 ______________
 
