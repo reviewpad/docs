@@ -1553,6 +1553,44 @@ workflows:
       - $close()
 ```
 
+## &nbsp; commitLint :zap:
+
+| :zap: Professional Edition (*) |
+| ------------------------------ |
+
+_(*) It requires Reviewpad `edition` to be set to `professional` on `reviewpad.yml`_
+```yml
+edition: professional
+```
+______________
+
+
+**Description**:
+
+Checks if the commits in the pull request follow the [conventional commits specification](https://www.conventionalcommits.org/en/v1.0.0/).
+
+**Parameters**:
+
+*none*
+
+**Examples**:
+
+```yml
+$commitLint()
+```
+
+A `reviewpad.yml` example:
+
+```yml
+workflows:
+  - name: check-conventional-commits
+    description: Check conventional commits
+    if:
+      - rule: tautology
+    then:
+      - $commitLint()
+```
+
 
 ## &nbsp; comment
 ______________
