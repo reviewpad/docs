@@ -918,6 +918,41 @@ rules:
     spec: $title() == "Test custom builtins"
 ```
 
+## &nbsp; workflowStatus
+______________
+
+**Description**:
+
+Returns the status of a workflow run.
+
+**Parameters**:
+
+| variable       | type   | description               |
+| -------------- | ------ | ------------------------- |
+| `workflowName` | string | The name of the workflow. |
+
+**Return value**:
+
+`string`
+
+The status of the workflow run.
+
+**Examples**:
+
+```yml
+$workflowStatus("reviewpad")
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: reviewpad-successful
+    kind: patch
+    description: Verifies if reviewpad run was successful
+    spec: '$workflowStatus("reviewpad") == "success"'
+```
+
 ## Organization
 ______________
 
