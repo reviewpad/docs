@@ -1205,6 +1205,41 @@ rules:
     spec: $isElementOf($author(), $group("junior"))
 ```
 
+## &nbsp; length
+______________
+
+**Description**:
+
+Length returns the length of an array.
+
+**Parameters**:
+
+| variable   | type     | description          |
+| ---------- | -------- | -------------------- |
+| `array`    | []string | array of elements    |
+
+**Return value**:
+
+`int`
+
+Returns the lenght of the array.
+
+**Examples**:
+
+```yml
+$length(["a", "b"])  # 2
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: has-at-least-one-reviewer
+    kind: patch
+    description: Has more than one reviewer
+    spec: '$length($reviewers) > 1'
+```
+
 ## &nbsp; startsWith
 ______________
 
