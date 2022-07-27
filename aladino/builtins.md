@@ -1793,6 +1793,8 @@ ______________
 
 Add a message to the errors section of the report.
 
+By default, it fails the GitHub action.
+
 **Parameters**:
 
 | variable  | type   | description                       |
