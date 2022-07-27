@@ -859,15 +859,11 @@ Returns the status of a reviewer in the pull request.
 
 `string`
 
-The status of a reviewer. It can be _neutral_, _requested_changes_ or _approved_.
-
-This status is computed based on the code reviews submitted by the reviewer.
-
-If there is no code review submitted yet or if there is no review with a decision 
-of approval or request for changes, the status is _neutral_.
-
-Otherwise, the status of the reviewer is the decision of the last code review 
-with had the decision of approval or request for changes.
+The status of a reviewer. It can be one of four string values:
+1. `""`, if there was no review from the reviewer;
+2. `"COMMENTED"`, if all the reviews from the reviewer were comments;
+3. `"CHANGES_REQUESTED"`, if the last review that was not a comment requested changes;
+4. `"APPROVED"`, if the last review that was not a comment requested changes;
 
 **Examples**:
 
@@ -882,7 +878,7 @@ rules:
   - name: approved-by-marcelosousa
     kind: patch
     description: Checks if the pull request was approved by marcelosousa
-    spec: '$reviewerStatus("marcelosousa") == "approved"'
+    spec: '$reviewerStatus("marcelosousa") == "APPROVED"'
 ```
 
 
