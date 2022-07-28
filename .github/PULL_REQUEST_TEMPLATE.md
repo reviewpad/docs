@@ -1,6 +1,6 @@
 ## Why
 
-<!-- Please explain why you're making a change (or link to an issue if it exists for your change: Closes # (issue)). -->
+<!-- Please explain why you're making a change (or link to an issue if it exists one for your change: Closes # (issue)). -->
 
 ## What's being changed
 
