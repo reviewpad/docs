@@ -740,6 +740,40 @@ rules:
     spec: $isDraft()
 ```
 
+## &nbsp; isWaitingForReview
+______________
+
+**Description**:
+
+Verifies whether a pull request is waiting for review, returning `true` or `false` as appropriate.
+
+A pull request is set as waiting for review where there are any **requested reviewers** or when all **reviews are outdated** (i.e. performed after the last pull request change.)
+
+**Parameters**:
+
+*none*
+
+**Return value**:
+
+`boolean`
+
+A boolean which is `true` if the pull request is waiting for review, `false` otherwise.
+
+**Examples**:
+
+```yml
+$isWaitingForReview()
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: isWaitingForReview
+    kind: patch
+    description: Verifies if pull request is waiting for review
+    spec: $isWaitingForReview()
+```
 
 ## &nbsp; labels
 ______________
@@ -1216,10 +1250,10 @@ Determines whether a list includes a certain value among its entries, returning 
 
 **Parameters**:
 
-| variable        | type      | description                |
-| --------------- | --------- | -------------------------- |
-| `searchElement` | literal   | The value to search for    |
-| `list`          | []literal | The list to search in      |
+| variable        | type      | description             |
+| --------------- | --------- | ----------------------- |
+| `searchElement` | literal   | The value to search for |
+| `list`          | []literal | The list to search in   |
 
 **Return value**:
 
@@ -1253,9 +1287,9 @@ Length returns the length of an array.
 
 **Parameters**:
 
-| variable   | type     | description          |
-| ---------- | -------- | -------------------- |
-| `array`    | []string | array of elements    |
+| variable | type     | description       |
+| -------- | -------- | ----------------- |
+| `array`  | []string | array of elements |
 
 **Return value**:
 
@@ -1288,10 +1322,10 @@ Determines whether a text starts with a certain sentence, returning `true` or `f
 
 **Parameters**:
 
-| variable         | type   | description                |
-| ---------------- | ------ | -------------------------- |
-| `text`           | string | The text to search in      |
-| `prefix`         | string | The prefix                 |
+| variable | type   | description           |
+| -------- | ------ | --------------------- |
+| `text`   | string | The text to search in |
+| `prefix` | string | The prefix            |
 
 **Return value**:
 
@@ -1602,9 +1636,9 @@ Assigns a list of teams to review the pull request.
 
 **Parameters**:
 
-| variable                | type     | description                                                       |
-| ----------------------- | -------- | ----------------------------------------------------------------- |
-| `teamReviewers`         | []string | list of GitHub team slugs that will be requested to review        |
+| variable        | type     | description                                                |
+| --------------- | -------- | ---------------------------------------------------------- |
+| `teamReviewers` | []string | list of GitHub team slugs that will be requested to review |
 
 **Return value**:
 
@@ -1749,9 +1783,9 @@ If the comment is already present, then the action does nothing.
 
 **Parameters**:
 
-| variable           | type   | description                            |
-| ------------------ | ------ | -------------------------------------- |
-| `comment`          | string | body of the comment                    |
+| variable  | type   | description         |
+| --------- | ------ | ------------------- |
+| `comment` | string | body of the comment |
 
 **Return value**:
 
@@ -1855,9 +1889,9 @@ Fails the action with a given fail message which will appear in the logs of the 
 
 **Parameters**:
 
-| variable           | type   | description                            |
-| ------------------ | ------ | -------------------------------------- |
-| `failMessage`      | string | fail message                           |
+| variable      | type   | description  |
+| ------------- | ------ | ------------ |
+| `failMessage` | string | fail message |
 
 **Return value**:
 
