@@ -1323,6 +1323,39 @@ Set of functions used to handle `reviewpad.yml` file.
 
 This functions should be used to access and handle data declared into `reviewpad.yml`, e.g. `$group` to get a defined group.
 
+## &nbsp; disableActions
+______________
+
+**Description**:
+
+Disables the list of Aladino actions passed as argument.
+
+**Parameters**:
+
+| variable    | type   | description                        |
+| ----------- | ------ | ---------------------------------- |
+| `actions`   | []string | the list of actions to be disabled |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$disableActions(["assignReviewer"])
+```
+
+A `reviewpad.yml` example:
+
+```yml
+workflows:
+  - name: reviewer-assignment-config
+    if:
+      - rule: is-draft
+    then:
+      - '$disableActions(["assignReviewer", "assignTeamReviewer", "assignRandomReviewer"])'
+```
 
 ## &nbsp; group
 ______________
