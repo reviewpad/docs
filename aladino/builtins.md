@@ -1332,8 +1332,8 @@ Disables the list of Aladino actions passed as argument.
 
 **Parameters**:
 
-| variable    | type   | description                        |
-| ----------- | ------ | ---------------------------------- |
+| variable    | type     | description                        |
+| ----------- | -------- | ---------------------------------- |
 | `actions`   | []string | the list of actions to be disabled |
 
 **Return value**:
