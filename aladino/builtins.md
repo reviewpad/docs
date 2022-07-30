@@ -1475,6 +1475,62 @@ workflows:
 ```
 
 
+## &nbsp; addToProject
+______________
+
+**Description**:
+
+Adds a pull request to a project.
+
+Here's an example:
+
+```yml
+# ..
+rules:
+  - name: does-not-have-issues
+    kind: patch
+    description: has no associated issues
+    spec: '!$hasLinkedIssues()'
+# ...
+workflows:
+  - name: add-to-project
+    description: Add to project pull requests without linked issues
+    if:
+      - rule: does-not-have-issues
+    then:
+      - '$addToProject("reviewpad test", "in progress")'
+```
+
+**Parameters**:
+
+| variable | type   | description       |
+| -------- | ------ | ----------------- |
+| `project name`   | string | name of the project you want to attach the pull request |
+| `status`   | string | status of the pull request (must be present as a status ) |
+
+**Return value**:
+
+None.
+
+**Examples**:
+
+```yml
+$addToProject("reviewpad", "in progress")
+```
+
+A `reviewpad.yml` example:
+
+```yml
+workflows:
+  - name: add-to-project
+    description: Add to project pull requests without linked issues
+    if:
+      - rule: does-not-have-issues
+    then:
+      - '$addToProject("reviewpad test", "in progress")'
+```
+
+
 ## &nbsp; assignAssignees
 ______________
 
